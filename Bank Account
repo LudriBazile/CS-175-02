@@ -1,0 +1,66 @@
+import java.util.Scanner;
+
+public class BankAccount {
+
+	private static double balance;
+	
+	
+	public BankAccount()
+	   {
+	      balance = 0;
+	   }
+	
+	 public void deposit(double amount)
+	   {
+	      balance = balance + amount;
+	   }
+	
+	 public void withdraw(double amount)
+	   {
+	      balance = balance - amount;
+	
+	   } 
+	 public double getBalance()
+	      {
+	         return balance;
+	      }
+
+	public void bankAccountTestor () {
+		BankAccount accountHolder = new BankAccount ();
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Welcome to My Bank Account. Please enter your start balace:  ");
+		double startBalance = scan.nextDouble();
+		balance = balance + startBalance;
+		
+		System.out.println("Please enter the amount you would like to withdrawl");
+		double withdrawlAmount = scan.nextDouble();
+		if (withdrawlAmount < balance) {
+		accountHolder.withdraw(withdrawlAmount);
+		}
+		else {
+	
+		System.out.println("Error: withdrawl amount exceeds balance");
+			
+		}	
+		
+		System.out.println("Please enter the amount you would like to deposit");
+		double depositAmount = scan.nextDouble();
+		accountHolder.deposit(depositAmount);
+		
+		
+		System.out.println("Your balance is " + balance);
+		
+		}
+	 
+
+	
+	 
+	 
+	public static void main(String[] args) {
+		
+
+		
+		BankAccount accountHolder = new BankAccount ();
+		
+		accountHolder.bankAccountTestor();
+		
