@@ -1,0 +1,38 @@
+import java.util.Scanner;
+public class Paint_House {
+
+	public static void main(String[] args) {
+	Scanner scan = new Scanner (System.in);
+	System.out.println("Please enter the the cost per square foot: ");
+	double paint_By_Foot = scan.nextInt();
+	System.out.println("Please enter the lenght of the house: ");
+	int L = scan.nextInt();
+	System.out.println("Please enter the width of the house: ");
+	int W = scan.nextInt();
+	System.out.println("Please enter the height of the house: ");
+	int H = scan.nextInt();
+	System.out.println("How many windows are in the house: ");
+	int num_Windows = scan.nextInt();
+	System.out.println("Please enter the lenght of the windows: ");
+	int window_L = scan.nextInt();
+	System.out.println("Please enter the width of the windows: ");
+	int window_W = scan.nextInt();
+	System.out.println("How many doors are in the house: ");
+	int num_Doors = scan.nextInt();
+	System.out.println("Please enter the lenght of the doors: ");
+	int door_L = scan.nextInt();
+	System.out.println("Please enter the width of the doors: ");
+	int door_W = scan.nextInt();
+	
+	double peak_Side = L*W + ((.5)*(L*(H-W)));
+	int normal_Side = L*W;
+	int windows_Volume = (num_Windows)*(window_L)*(window_W);
+	int doors_Volume = (num_Doors)*(door_L)*(door_W);
+	double max_Volume = (2*normal_Side) + (2*peak_Side);
+	
+	double final_Volume = max_Volume - doors_Volume - windows_Volume; 
+	double final_Cost = final_Volume *  paint_By_Foot;
+	
+	System.out.println("The final volume of the house is: " + final_Volume);
+	System.out.println("The final cost to paint the house is: " + final_Cost);
+	
