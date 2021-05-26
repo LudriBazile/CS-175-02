@@ -1,0 +1,116 @@
+import java.util.Scanner;
+
+public class BankAccount {
+
+	private static double balance;
+	String option = "";
+	double interestPct;
+	double balanceInterest;
+	public BankAccount()
+	   {
+	      balance = 0;
+	      interestPct = 0;
+	      
+	   }
+	
+	 public void deposit(double amount)
+	   {
+	      balance = balance + amount;
+	      
+	   }
+	
+	 public void withdraw(double amount)
+	   {
+	      balance = balance - amount;
+	
+	   } 
+	 public double getBalance()
+	      {
+	         return balance;
+	         
+	      }
+	 
+	 public void calcInterest(double interestPct) {
+	 
+	 
+		 balanceInterest = balance * interestPct;
+		 System.out.println("Interest:   " + "$" + balanceInterest );		
+		
+				
+	
+		  
+	 }
+	public void bankAccountTestor () {
+		BankAccount accountHolder = new BankAccount ();
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Welcome to My Bank Account. Please enter your start balace:  ");
+		double startBalance = scan.nextDouble();
+		balance = balance + startBalance;
+		
+		System.out.println("Please enter the interest rate as a decimal:  ");
+		interestPct = scan.nextDouble();
+		
+		System.out.println("A new account was created with a balance of  " + balance + " and an interest rate of " + interestPct );
+		
+		System.out.println("Please enter the amount you would like to withdrawl");
+		double withdrawlAmount = scan.nextDouble();
+		if (withdrawlAmount < balance) {
+		accountHolder.withdraw(withdrawlAmount);
+		System.out.println("$" +  withdrawlAmount + " was withdrew from your account");
+		
+		}
+		else {
+	
+		System.out.println("Error: withdrawl amount exceeds balance");
+			
+		}	
+		
+		System.out.println("Please enter the amount you would like to deposit");
+		double depositAmount = scan.nextDouble();
+		accountHolder.deposit(depositAmount);
+		System.out.println("$" + depositAmount + " was deposited into your account");
+		 
+		accountHolder.getBalance();
+		System.out.println("Your balance is  $" + balance);
+		
+		
+		
+		
+		System.out.println("Would you like to calculate interest? type y for yes and n for no");
+		char option = scan.next().charAt(0);
+		if (option == 'y') {
+			accountHolder.calcInterest(interestPct);
+			
+			System.out.println("Thank you for using My Bank Account. Goodbye.");
+			
+			
+			
+			
+			
+			}
+			else {
+		
+			System.out.println("Thank you for using My Bank Account. Goodbye.");
+				
+			}	
+	
+	}
+	
+	
+	 
+
+	
+	 
+	 
+	public static void main(String[] args) {
+		
+		
+		BankAccount accountHolder = new BankAccount ();
+		
+		accountHolder.bankAccountTestor();
+		
+		
+		
+	}
+
+}
