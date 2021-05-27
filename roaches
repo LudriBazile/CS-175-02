@@ -1,0 +1,83 @@
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
+public class RoachPopulation {
+static int population;
+static double percentage;	
+
+
+public void breed(int population) {	
+	
+	
+	population = 2 * population;
+	
+	
+}
+	
+	
+	public void spray(int population, int percentSpray) {
+	
+	
+	population = population * (percentSpray/100);
+	
+	
+	}
+	
+	
+
+
+public static void main(String[] args) {
+
+	JFrame frame = new JFrame("roach population");
+     
+      frame.setLocationRelativeTo(null);
+      frame.setVisible(true);	
+      RoachPopulation roaches = new RoachPopulation (population);
+	
+    String initialPop = JOptionPane.showInputDialog("Please enter the initial population of roaches");
+	int population = Integer.parseInt(initialPop);
+	JOptionPane.showMessageDialog(frame, "The initial roach population is " + initialPop );
+		
+	
+	roaches.breed(population);
+	JOptionPane.showMessageDialog(frame, "The Roach population after cycle 1 breeding is " + population );
+	String percentSpray = JOptionPane.showInputDialog("Please enter the spray percentage for cycle 1"); 
+	int percentage = Integer.parseInt(percentSpray);
+	roaches.spray(population, percentage);
+	JOptionPane.showMessageDialog(frame,"The roach population after cycle 1 "+ percentage + "% spraying is " + population );
+	
+	roaches.breed(population);
+	JOptionPane.showMessageDialog(frame, "The Roach population after cycle 2 breeding is " + population );
+	String percentSpray2 = JOptionPane.showInputDialog("Please enter the spray percentage for cycle 2"); 
+	int percentage2 = Integer.parseInt(percentSpray2);
+	roaches.spray(population, percentage2);
+	JOptionPane.showMessageDialog(frame,"The roach population after cycle 2 "+ percentage2 + "% spraying is " + population );
+	
+	roaches.breed(population);
+	JOptionPane.showMessageDialog(frame, "The Roach population after cycle 3 breeding is " + population );
+	String percentSpray3 = JOptionPane.showInputDialog("Please enter the spray percentage for cycle 3"); 
+	int percentage3 = Integer.parseInt(percentSpray3);
+	roaches.spray(population, percentage3);
+	JOptionPane.showMessageDialog(frame,"The roach population after cycle 3 "+ percentage3 + "% spraying is " + population );
+	
+	roaches.breed(population);
+	JOptionPane.showMessageDialog(frame, "The Roach population after cycle 4 breeding is " + population );
+	String percentSpra4 = JOptionPane.showInputDialog("Please enter the spray percentage for cycle 4"); 
+	int percentage4 = Integer.parseInt(percentSpray3);
+	roaches.spray(population, percentage4);
+	JOptionPane.showMessageDialog(frame,"The roach population after cycle 4 "+ percentage4 + "% spraying is " + population );
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	}
+
+}
